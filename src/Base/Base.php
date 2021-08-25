@@ -29,15 +29,6 @@ abstract class Base extends ApiResource implements BaseInterface
     }
 
     /**
-     *
-     * @return array
-     */
-    public function select(): array
-    {
-        return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}/select");
-    }
-
-    /**
      * Show single resource
      *
      * @param $id
@@ -46,5 +37,14 @@ abstract class Base extends ApiResource implements BaseInterface
     public function show($id): array
     {
         return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}" . $id);
+    }
+
+    /**
+     *
+     * @return array
+     */
+    public function select(): array
+    {
+        return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}/select");
     }
 }
