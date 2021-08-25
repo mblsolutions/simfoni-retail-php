@@ -1,0 +1,34 @@
+{
+    "name": "mblsolutions/simfoni-retail-php",
+    "description": "Official Simfoni Retail interface for PHP applications.",
+    "keywords": ["simfoniretail"],
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MBL Solutions Ltd.",
+            "email": "support@mblsolutions.co.uk"
+        }
+    ],
+    "require": {
+        "php": "^7.1|^8.0",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "guzzlehttp/guzzle": "^6.0|^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MBLSolutions\\SimfoniRetail\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MBLSolutions\\SimfoniRetail\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
