@@ -6,7 +6,7 @@ use MBLSolutions\SimfoniRetail\Base\Base;
 
 class Reports extends Base
 {
-    private $endpoint = 'reports';
+    protected $endpoint = 'reports';
 
     /**
      *

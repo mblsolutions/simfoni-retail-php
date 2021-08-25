@@ -6,5 +6,5 @@ use MBLSolutions\SimfoniRetail\Base\Base;
 
 class History extends Base
 {
-    private $endpoint = 'order/history';
+    protected $endpoint = 'order/history';
 }

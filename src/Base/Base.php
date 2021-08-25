@@ -12,7 +12,7 @@ abstract class Base extends ApiResource implements BaseInterface
      *
      * @var string
      */
-    private $endpoint = null;
+    protected $endpoint = null;
 
     /**
      * View all endpoint resources
