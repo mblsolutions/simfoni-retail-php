@@ -6,7 +6,7 @@ use MBLSolutions\SimfoniRetail\Base\Base;
 
 class Orders extends Base
 {
-    private $endpoint = 'order';
+    protected $endpoint = 'order';
 
     /**
      * Create a new Order

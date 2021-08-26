@@ -6,5 +6,5 @@ use MBLSolutions\SimfoniRetail\Base\Base;
 
 class Funds extends Base
 {
-    private $endpoint = 'funds';
+    protected $endpoint = 'funds';
 }
