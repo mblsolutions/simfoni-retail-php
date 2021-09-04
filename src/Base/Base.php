@@ -36,7 +36,7 @@ abstract class Base extends ApiResource implements BaseInterface
      */
     public function show($id): array
     {
-        return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}" . $id);
+        return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}/" . $id);
     }
 
     /**
