@@ -17,7 +17,7 @@ class SimfoniRetail
 
     const AGENT = 'Simfoni-Retail-PHP';
 
-    const VERSION = '1';
+    const VERSION = '1.02';
 
     /**
      * Override the default baseUri
