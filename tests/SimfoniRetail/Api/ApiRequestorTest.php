@@ -36,6 +36,7 @@ class ApiRequestorTest extends TestCase
         $this->assertEquals([
             'User-Agent' => SimfoniRetail::AGENT . '/' . SimfoniRetail::VERSION,
             'Accept'     => 'application/json',
+            'Authorization' => 'Bearer test_token',
         ], $defaultHeaders->invoke(new ApiRequestor($guzzle)));
     }
 
@@ -128,7 +129,7 @@ class ApiRequestorTest extends TestCase
             ]
         ], $response);
     }
-    
+
     /** @test **/
     public function can_make_a_http_post_request()
     {
