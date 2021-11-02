@@ -69,12 +69,12 @@ class ApiRequestor
      * @return array
      * @throws mixed
      */
-    public function postRequest(string $uri, array $params = [], array $headers = null): array
+    public function postRequest(string $uri, array $params = [], array $headers = []): array
     {
         return $this->makeHttpRequest('post', $uri, [
-            'headers' => $headers !== null ? $this->defaultHeaders($headers) : $this->authenticatedHeaders(),
+            'headers' => $this->defaultHeaders($headers),
             'json' => $params,
-            'verify' => SimfoniRetail::getVerifySSL()
+            'verify' => SimfoniRetail::getVerifySSL(),
         ]);
     }
 
@@ -115,16 +115,17 @@ class ApiRequestor
     }
 
     /**
-     * Get the Default Request Headers
-     *
      * @param array $headers
+     *
      * @return array
+     * @throws \MBLSolutions\SimfoniRetail\Exceptions\MissingTokenException
      */
     public function defaultHeaders(array $headers = []): array
     {
         return array_merge($headers, [
             'User-Agent' => SimfoniRetail::AGENT . '/' . SimfoniRetail::VERSION,
             'Accept'     => 'application/json',
+            'Authorization' => 'Bearer ' . SimfoniRetail::getToken(),
         ]);
     }
 
