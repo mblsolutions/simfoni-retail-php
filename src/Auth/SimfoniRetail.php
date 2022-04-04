@@ -7,7 +7,7 @@ use MBLSolutions\SimfoniRetail\Exceptions\MissingTokenException;
 class SimfoniRetail
 {
     /** @var string $baseUri */
-    private static $baseUri = 'https://development.simfoni.io';
+    private static $baseUri = 'https://simfoni.tech';
 
     /** @var string $token */
     private static $token;
@@ -17,7 +17,7 @@ class SimfoniRetail
 
     const AGENT = 'Simfoni-Retail-PHP';
 
-    const VERSION = '1.02';
+    const VERSION = '1.2.1';
 
     /**
      * Override the default baseUri

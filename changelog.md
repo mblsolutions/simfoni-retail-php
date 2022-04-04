@@ -1,3 +1,8 @@
+## v1.2.1
+
++ Change default endpoint URL to now use updated .tech TLD
++ Bump version to v1.2.1
+
 ## v1.2.0
 
 + Add ability to pass custom headers to Bulk Order api
