@@ -1,3 +1,7 @@
+## v1.3.0
+
++ Add v2 API endpoint helpers
+
 ## v1.2.1
 
 + Change default endpoint URL to now use updated .tech TLD

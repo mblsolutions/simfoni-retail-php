@@ -18,6 +18,7 @@ abstract class Base extends ApiResource implements BaseInterface
      * View all endpoint resources
      *
      * @param int|null $page
+     * @param int|null $perPage
      * @return array
      */
     public function all(int $page = null, int $perPage = null): array
