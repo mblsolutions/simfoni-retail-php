@@ -99,4 +99,21 @@ class OrdersTest extends TestCase
 
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
+
+    /** @test **/
+    public function can_cancel_order(): void
+    {
+        $this->mockExpectedHttpResponse(
+            [
+                'data' => [
+                    'reference' => 'ORDER-1',
+                    'status' => 'cancelled',
+                ]
+            ]
+        );
+
+        $response = $this->orders->cancel(uniqid());
+
+        $this->assertEquals($response, $this->getMockedResponseBody());
+    }
 }
