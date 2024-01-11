@@ -66,4 +66,37 @@ class OrdersTest extends TestCase
 
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
+
+    /** @test **/
+    public function can_show_order(): void
+    {
+        $this->mockExpectedHttpResponse(
+            [
+                'data' => [
+                    "reference" => "ORDER-1",
+                    "status" => "complete",
+                    "created_at" => "2021-01-01T08:04:38.000000Z",
+                    "items" => [
+                        [
+                            "value" => 2000,
+                            "product" => "JOJO_DIGITAL",
+                            "details" => [
+                                "serial" => null,
+                                "code" => 1234567890123456,
+                                "pin" => 1234,
+                                "url" => "https://redeem.simfoni.co.uk/POW0e6Kay9vVjYLb30DzCCPVWYgUUSek",
+                                "activation" => null,
+                                "expiration" => null
+                            ]
+                        ]
+                    ]
+                ],
+                202
+            ]
+        );
+
+        $response = $this->orders->show(uniqid());
+
+        $this->assertEquals($response, $this->getMockedResponseBody());
+    }
 }
