@@ -1,3 +1,7 @@
+## v1.4.0
+
++ Add Cancel Order api 
+
 ## v1.3.0
 
 + Add v2 API endpoint helpers
