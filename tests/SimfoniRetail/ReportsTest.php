@@ -4,19 +4,18 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail;
 
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
 use MBLSolutions\SimfoniRetail\Reports;
+use PHPUnit\Framework\Attributes\Test;
 
 class ReportsTest extends TestCase
 {
     /** @var Reports $reports */
     protected $reports;
-
     /** {@inheritdoc} **/
     public function setUp(): void
     {
         $this->reports = new Reports();
     }
-
-    /** @test **/
+    #[Test]
     public function can_show_one(): void
     {
         $this->mockExpectedHttpResponse(
@@ -31,16 +30,16 @@ class ReportsTest extends TestCase
                     "current_page" => 1,
                     "data" => [
                         [
-                          "Brand" => "JoJo Maman Bébé",
-                          "Total Orders" => 16,
-                          "Gross Value" => "400.00",
-                          "Net Value" => "360.00"
+                            "Brand" => "JoJo Maman Bébé",
+                            "Total Orders" => 16,
+                            "Gross Value" => "400.00",
+                            "Net Value" => "360.00"
                         ],
                         [
-                          "Brand" => "Greggs PLC",
-                          "Total Orders" => 20,
-                          "Gross Value" => "1200.00",
-                          "Net Value" => "1080.00"
+                            "Brand" => "Greggs PLC",
+                            "Total Orders" => 20,
+                            "Gross Value" => "1200.00",
+                            "Net Value" => "1080.00"
                         ]
                     ],
                     "first_page_url" => "https://staging.simfoni.io/api/report/4?page=1",
@@ -71,21 +70,16 @@ class ReportsTest extends TestCase
                 ]
             ]
         );
-
         $response = $this->reports->show(1);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_export(): void
     {
         $this->mockExpectedHttpResponse([
             "uri" => "https://staging.simfoni.io/report/1/export?expires=01&uid=1&signature=abc1234"
         ]);
-
         $response = $this->reports->export(1);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
 }

@@ -4,11 +4,11 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail\Exceptions;
 
 use MBLSolutions\SimfoniRetail\Exceptions\ValidationException;
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ValidationExceptionTest extends TestCase
 {
-
-    /** @test **/
+    #[Test]
     public function can_create_validation_exception()
     {
         $message = json_encode([
@@ -22,9 +22,7 @@ class ValidationExceptionTest extends TestCase
                 ]
             ]
         ]);
-
         $exception = new ValidationException($message, 422);
-
         $this->assertEquals($exception->getMessage(), 'The given data was invalid.');
         $this->assertEquals(422, $exception->getCode());
         $this->assertEquals($exception->getValidationErrors(), [

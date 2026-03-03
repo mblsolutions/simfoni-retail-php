@@ -21,7 +21,7 @@ abstract class Base extends ApiResource implements BaseInterface
      * @param int|null $perPage
      * @return array
      */
-    public function all(int $page = null, int $perPage = null): array
+    public function all(?int $page = null, ?int $perPage = null): array
     {
         return $this->getApiRequestor()->getRequest("/api/{$this->endpoint}", [
             'page' => $page,

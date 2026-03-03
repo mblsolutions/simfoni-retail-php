@@ -25,7 +25,7 @@ class SimfoniRetail
      * @param string $baseUri
      * @return void
      */
-    public static function setBaseUri(string $baseUri = null): void
+    public static function setBaseUri(?string $baseUri = null): void
     {
         if ($baseUri) {
             self::$baseUri = $baseUri;

@@ -6,27 +6,24 @@ use GuzzleHttp\Client;
 use MBLSolutions\SimfoniRetail\Api\ApiRequestor;
 use MBLSolutions\SimfoniRetail\Api\ApiResource;
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ApiResourceTest extends TestCase
 {
-    
-    /** @test **/
+
+    #[Test]
     public function can_get_api_requestor(): void
     {
         $stub = $this->getMockBuilder(ApiResource::class)
-                     ->getMock();
-
+            ->getMock();
         self::assertInstanceOf(ApiRequestor::class, $stub->getApiRequestor());
     }
-
-    /** @test **/
+    #[Test]
     public function can_set_api_requestor(): void
     {
         $stub = $this->getMockBuilder(ApiResource::class)
-                     ->getMock();
-
+            ->getMock();
         $newApiRequestor = new ApiRequestor(new Client);
-
         self::assertInstanceOf(ApiRequestor::class, $stub->setApiRequestor($newApiRequestor));
     }
 }
