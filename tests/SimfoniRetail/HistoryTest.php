@@ -4,24 +4,23 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail;
 
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
 use MBLSolutions\SimfoniRetail\History;
+use PHPUnit\Framework\Attributes\Test;
 
 class HistoryTest extends TestCase
 {
     /** @var History $history */
     protected $history;
-
     /** {@inheritdoc} **/
     public function setUp(): void
     {
         $this->history = new History();
     }
-
-    /** @test **/
+    #[Test]
     public function can_get_all(): void
     {
         $this->mockExpectedHttpResponse(
             [
-            'data' => [
+                'data' => [
                     'uuid' => 'd089de91-8414-443b-bd6d-efef6f47c72f',
                     'product' => 'Hobbycraft Digital e-Code',
                     'sku' => 'HC_DIG_B2B_GBP',
@@ -47,13 +46,10 @@ class HistoryTest extends TestCase
                 ]
             ]
         );
-
         $response = $this->history->all();
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_show(): void
     {
         $this->mockExpectedHttpResponse(
@@ -80,9 +76,7 @@ class HistoryTest extends TestCase
                 ]
             ]
         );
-
         $response = $this->history->show(rand());
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
 }

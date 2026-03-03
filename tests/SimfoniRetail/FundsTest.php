@@ -4,26 +4,24 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail;
 
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
 use MBLSolutions\SimfoniRetail\Funds;
+use PHPUnit\Framework\Attributes\Test;
 
 class FundsTest extends TestCase
 {
     /** @var Funds $funds */
     protected $funds;
-
     /** {@inheritdoc} **/
     public function setUp(): void
     {
         parent::setUp();
-
         $this->funds = new Funds();
     }
-
-    /** @test **/
+    #[Test]
     public function can_get_all(): void
     {
         $this->mockExpectedHttpResponse(
             [
-            'data' => [
+                'data' => [
                     'id' => 2,
                     'name' => 'Debit',
                     'currency' => 'GBP',
@@ -49,9 +47,7 @@ class FundsTest extends TestCase
                 ],
             ]
         );
-
         $response = $this->funds->select();
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
 }

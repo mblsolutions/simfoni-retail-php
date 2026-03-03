@@ -5,19 +5,18 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail;
 use MBLSolutions\SimfoniRetail\OrdersV2;
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
 use MBLSolutions\SimfoniRetail\Orders;
+use PHPUnit\Framework\Attributes\Test;
 
 class OrdersV2Test extends TestCase
 {
     /** @var Orders $orders */
     protected $orders;
-
     /** {@inheritdoc} **/
     public function setUp(): void
     {
         $this->orders = new OrdersV2();
     }
-
-    /** @test **/
+    #[Test]
     public function can_create(): void
     {
         $this->mockExpectedHttpResponse(
@@ -35,17 +34,14 @@ class OrdersV2Test extends TestCase
                 201
             ]
         );
-
         $response = $this->orders->create([
             'reference' => uniqid(),
             'sku' => 'JOJO_DIGITAL',
             'value' => rand()
         ]);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_create_delayed_order(): void
     {
         $this->mockExpectedHttpResponse(
@@ -58,13 +54,11 @@ class OrdersV2Test extends TestCase
                 202
             ]
         );
-
         $response = $this->orders->create([
             'reference' => uniqid(),
             'sku' => 'JOJO_DIGITAL',
             'value' => rand()
         ]);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
 }

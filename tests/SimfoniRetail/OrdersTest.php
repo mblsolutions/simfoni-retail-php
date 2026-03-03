@@ -4,19 +4,18 @@ namespace MBLSolutions\SimfoniRetail\Tests\SimfoniRetail;
 
 use MBLSolutions\SimfoniRetail\Tests\TestCase;
 use MBLSolutions\SimfoniRetail\Orders;
+use PHPUnit\Framework\Attributes\Test;
 
 class OrdersTest extends TestCase
 {
     /** @var Orders $orders */
     protected $orders;
-
     /** {@inheritdoc} **/
     public function setUp(): void
     {
         $this->orders = new Orders();
     }
-
-    /** @test **/
+    #[Test]
     public function can_create(): void
     {
         $this->mockExpectedHttpResponse(
@@ -34,17 +33,14 @@ class OrdersTest extends TestCase
                 201
             ]
         );
-
         $response = $this->orders->create([
             'reference' => uniqid(),
             'sku' => 'JOJO_DIGITAL',
             'value' => rand()
         ]);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_create_delayed_order(): void
     {
         $this->mockExpectedHttpResponse(
@@ -57,17 +53,14 @@ class OrdersTest extends TestCase
                 202
             ]
         );
-
         $response = $this->orders->create([
             'reference' => uniqid(),
             'sku' => 'JOJO_DIGITAL',
             'value' => rand()
         ]);
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_show_order(): void
     {
         $this->mockExpectedHttpResponse(
@@ -94,13 +87,10 @@ class OrdersTest extends TestCase
                 202
             ]
         );
-
         $response = $this->orders->show(uniqid());
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
-
-    /** @test **/
+    #[Test]
     public function can_cancel_order(): void
     {
         $this->mockExpectedHttpResponse(
@@ -111,9 +101,7 @@ class OrdersTest extends TestCase
                 ]
             ]
         );
-
         $response = $this->orders->cancel(uniqid());
-
         $this->assertEquals($response, $this->getMockedResponseBody());
     }
 }
