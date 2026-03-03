@@ -1,4 +1,4 @@
-## v1.5.0
+## v2.0.0
 
 + Add support for PHP8.4
 + Update unit tests to support PHP unit 10 & 11
